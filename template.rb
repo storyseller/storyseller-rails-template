@@ -9,3 +9,7 @@
 def source_paths
   [__dir__] + super
 end
+
+# Agent instructions. CLAUDE.md points at AGENTS.md so every agent reads the same file.
+template "files/AGENTS.md.tt", "AGENTS.md"
+create_link "CLAUDE.md", "AGENTS.md"

@@ -1,0 +1,30 @@
+# Agent instructions for <%= app_name %>
+
+## Running tests
+
+- Unit and integration tests: `bin/rails test`
+
+## Simple, straightforward implementation
+
+Prefer implementation that junior developers can read, trace and maintain.
+
+- Use clear names that match the business concepts in the design documents.
+- Keep functions and methods small and focused on one understandable task.
+- Follow familiar Rails and PostgreSQL conventions so readers know where to look.
+- Make the flow from input, through validation and business rules, to the result
+  easy to follow. Keep data changes and other side effects visible.
+- Add an abstraction only when it solves a concrete, current need. Explain that
+  need; avoid extra layers, generic frameworks or clever techniques for possible
+  future requirements.
+- Preserve the planned tenant boundaries, module behavior and business rules
+  when simplifying code. Simplicity must not remove required checks.
+- When complexity is unavoidable, explain why it is needed and how it works near
+  the relevant code or in a linked design document. Use a small example when it
+  helps a reader follow the behavior.
+- Keep changes focused and explain their business purpose in plain language.
+
+## Review question
+
+Can a junior developer explain how the feature works, from input to result,
+without the original author beside them? If not, simplify the implementation or
+clarify the necessary complexity before considering the change ready.
