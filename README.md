@@ -9,53 +9,23 @@ Every app created from this template starts with:
 - `AGENTS.md` with our coding guidelines, read by Claude Code, Codex and other agents
 - Minitest for unit and integration tests, and Cucumber for acceptance tests
 
-## Usage
+## Create an app
 
-### 1. Get the template
-
-```bash
-git clone git@github.com:storyseller/storyseller-rails-template.git ~/Projects/storyseller-rails-template
-```
-
-### 2. Create an app
-
-Requires Docker. Ruby does not need to be installed.
-
-From the folder where the new app should live:
+Requires Ruby, Rails and git. Replace `myapp` with your app's name:
 
 ```bash
-cd ~/Projects
-~/Projects/storyseller-rails-template/bin/new-app myapp
+rails new myapp -d postgresql --skip-action-cable -m https://raw.githubusercontent.com/storyseller/storyseller-rails-template/develop/template.rb
 ```
 
-This creates `~/Projects/myapp` with its first git commit already made.
+Add any other `rails new` options you need, for example `--css=tailwind`.
 
-### 3. Pass extra `rails new` options (optional)
+## Working on the template
 
-Anything after the app name is passed to `rails new`. For example:
+To try local changes, point `-m` at your checkout instead of the URL:
 
 ```bash
-# Use SQLite instead of PostgreSQL
-~/Projects/storyseller-rails-template/bin/new-app myapp --database=sqlite3
-
-# Use Tailwind CSS
-~/Projects/storyseller-rails-template/bin/new-app myapp --css=tailwind
+rails new myapp -d postgresql --skip-action-cable -m path/to/storyseller-rails-template/template.rb
 ```
-
-### Without Docker
-
-If Ruby and Rails are installed locally:
-
-```bash
-rails new myapp --database=postgresql --skip-action-cable -m ~/Projects/storyseller-rails-template/template.rb
-```
-
-## How it works
-
-`bin/new-app` runs `rails new` with this template inside a `ruby:3.4` container,
-then makes the first git commit on your machine so your own git setup (including
-commit signing) is used.
 
 - `template.rb` – the steps `rails new` runs to set up the app
 - `files/` – files copied into the new app
-- `bin/new-app` – runs `rails new` with this template inside a container
