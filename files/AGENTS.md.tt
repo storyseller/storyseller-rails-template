@@ -3,6 +3,7 @@
 ## Running tests
 
 - Unit and integration tests: `bin/rails test`
+- Acceptance tests (Cucumber): `bundle exec cucumber`
 
 ## Simple, straightforward implementation
 

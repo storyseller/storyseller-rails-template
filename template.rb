@@ -13,3 +13,13 @@ end
 # Agent instructions. CLAUDE.md points at AGENTS.md so every agent reads the same file.
 template "files/AGENTS.md.tt", "AGENTS.md"
 create_link "CLAUDE.md", "AGENTS.md"
+
+# Cucumber for behaviour-driven acceptance tests.
+gem_group :test do
+  gem "cucumber-rails", require: false
+  gem "database_cleaner-active_record"
+end
+
+after_bundle do
+  generate "cucumber:install"
+end
