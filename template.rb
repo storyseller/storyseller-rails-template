@@ -10,9 +10,8 @@ def source_paths
   [__dir__] + super
 end
 
-# Agent instructions. CLAUDE.md points at AGENTS.md so every agent reads the same file.
+# Agent instructions. Claude Code, Codex and other agents all read AGENTS.md.
 template "files/AGENTS.md.tt", "AGENTS.md"
-create_link "CLAUDE.md", "AGENTS.md"
 
 # Cucumber for behaviour-driven acceptance tests.
 gem_group :test do

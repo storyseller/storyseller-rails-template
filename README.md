@@ -6,7 +6,7 @@ Every app created from this template starts with:
 
 - PostgreSQL as the database
 - Action Cable left out
-- `AGENTS.md` with our coding guidelines, and `CLAUDE.md` linked to it
+- `AGENTS.md` with our coding guidelines, read by Claude Code, Codex and other agents
 - Minitest for unit and integration tests, and Cucumber for acceptance tests
 
 ## Usage
