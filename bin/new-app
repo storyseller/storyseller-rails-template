@@ -6,6 +6,7 @@
 #   path/to/storyseller-rails-template/bin/new-app APP_NAME [extra rails new options]
 #
 # Apps use PostgreSQL by default. Pass a different --database option to override it.
+# Action Cable (WebSockets) is left out.
 #
 # Example:
 #   ~/Projects/storyseller-rails-template/bin/new-app storyseller
@@ -32,7 +33,7 @@ docker run "${docker_flags[@]}" \
   bash -c '
     gem install rails --no-document &&
     app_name="$1" && shift &&
-    rails new "$app_name" --database=postgresql "$@" -m /template/template.rb
+    rails new "$app_name" --database=postgresql --skip-action-cable "$@" -m /template/template.rb
   ' _ "$@"
 
 # Commit on this Mac rather than in the container, so your normal git setup

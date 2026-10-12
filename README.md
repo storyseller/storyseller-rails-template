@@ -13,7 +13,7 @@ From the folder where the new app should live:
 ~/Projects/storyseller-rails-template/bin/new-app myapp
 ```
 
-Apps use PostgreSQL by default. Any extra options are passed to `rails new`, so
+Apps use PostgreSQL by default and leave out Action Cable. Any extra options are passed to `rails new`, so
 `--database=sqlite3` (for example) overrides the default.
 
 The script generates the app in a `ruby:3.4` container, then makes the first git
@@ -22,7 +22,7 @@ commit on your Mac so your own git setup (including commit signing) is used.
 If Ruby and Rails are installed locally you can also run:
 
 ```bash
-rails new myapp --database=postgresql -m ~/Projects/storyseller-rails-template/template.rb
+rails new myapp --database=postgresql --skip-action-cable -m ~/Projects/storyseller-rails-template/template.rb
 ```
 
 ## Layout
