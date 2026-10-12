@@ -4,6 +4,8 @@
 
 - Unit and integration tests: `bin/rails test`
 - Acceptance tests (Cucumber): `bundle exec cucumber`
+- Write Cucumber step definitions with Minitest assertions (`assert_equal`,
+  `assert_text`), not RSpec `expect`. RSpec is not installed.
 
 ## Simple, straightforward implementation
 
