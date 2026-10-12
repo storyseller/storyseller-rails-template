@@ -2,30 +2,59 @@
 
 Rails application template for bootstrapping new Storyseller apps.
 
+Every app created from this template starts with:
+
+- PostgreSQL as the database
+- Action Cable left out
+- `AGENTS.md` with our coding guidelines, and `CLAUDE.md` linked to it
+- Minitest for unit and integration tests, and Cucumber for acceptance tests
+
 ## Usage
 
-Requires [OrbStack](https://orbstack.dev) (or any Docker runtime). Ruby does not
-need to be installed on your Mac.
+### 1. Get the template
+
+```bash
+git clone git@github.com:storyseller/storyseller-rails-template.git ~/Projects/storyseller-rails-template
+```
+
+### 2. Create an app
+
+Requires Docker. Ruby does not need to be installed.
 
 From the folder where the new app should live:
 
 ```bash
+cd ~/Projects
 ~/Projects/storyseller-rails-template/bin/new-app myapp
 ```
 
-Apps use PostgreSQL by default and leave out Action Cable. Any extra options are passed to `rails new`, so
-`--database=sqlite3` (for example) overrides the default.
+This creates `~/Projects/myapp` with its first git commit already made.
 
-The script generates the app in a `ruby:3.4` container, then makes the first git
-commit on your Mac so your own git setup (including commit signing) is used.
+### 3. Pass extra `rails new` options (optional)
 
-If Ruby and Rails are installed locally you can also run:
+Anything after the app name is passed to `rails new`. For example:
+
+```bash
+# Use SQLite instead of PostgreSQL
+~/Projects/storyseller-rails-template/bin/new-app myapp --database=sqlite3
+
+# Use Tailwind CSS
+~/Projects/storyseller-rails-template/bin/new-app myapp --css=tailwind
+```
+
+### Without Docker
+
+If Ruby and Rails are installed locally:
 
 ```bash
 rails new myapp --database=postgresql --skip-action-cable -m ~/Projects/storyseller-rails-template/template.rb
 ```
 
-## Layout
+## How it works
+
+`bin/new-app` runs `rails new` with this template inside a `ruby:3.4` container,
+then makes the first git commit on your machine so your own git setup (including
+commit signing) is used.
 
 - `template.rb` – the steps `rails new` runs to set up the app
 - `files/` – files copied into the new app

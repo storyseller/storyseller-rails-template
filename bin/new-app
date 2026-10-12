@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Creates a new Rails app from this template inside a Docker container (OrbStack),
+# Creates a new Rails app from this template inside a Docker container,
 # so Ruby does not need to be installed on this Mac.
 #
 # Usage (run from the folder where the app should be created):

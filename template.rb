@@ -1,7 +1,7 @@
 # Rails application template for Storyseller apps.
 #
 # Usage:
-#   bin/new-app myapp                       (runs inside OrbStack, no local Ruby needed)
+#   bin/new-app myapp                       (runs inside Docker, no local Ruby needed)
 #   rails new myapp -m path/to/template.rb  (if Ruby and Rails are installed locally)
 
 # Lets `template` and `copy_file` find the files/ folder next to this script.
