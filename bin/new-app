@@ -1,0 +1,36 @@
+#!/usr/bin/env bash
+# Creates a new Rails app from this template inside a Docker container (OrbStack),
+# so Ruby does not need to be installed on this Mac.
+#
+# Usage (run from the folder where the app should be created):
+#   path/to/storyseller-rails-template/bin/new-app APP_NAME [extra rails new options]
+#
+# Example:
+#   ~/Projects/storyseller-rails-template/bin/new-app storyseller --database=postgresql
+set -euo pipefail
+
+if [ $# -lt 1 ]; then
+  echo "Usage: bin/new-app APP_NAME [rails new options]" >&2
+  exit 1
+fi
+
+template_dir="$(cd "$(dirname "$0")/.." && pwd)"
+
+# Attach a terminal only when there is one, so the script also works from other tools.
+docker_flags=(--rm)
+if [ -t 1 ]; then
+  docker_flags+=(-it)
+fi
+
+docker run "${docker_flags[@]}" \
+  -v "$PWD":/work \
+  -v "$template_dir":/template:ro \
+  -w /work \
+  ruby:3.4 \
+  bash -c 'gem install rails --no-document && rails new "$@" -m /template/template.rb' _ "$@"
+
+# Commit on this Mac rather than in the container, so your normal git setup
+# (including commit signing keys) is used.
+cd "$1"
+git add -A
+git commit -m "Initial commit from storyseller-rails-template"
