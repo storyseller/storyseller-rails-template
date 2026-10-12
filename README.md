@@ -10,17 +10,19 @@ need to be installed on your Mac.
 From the folder where the new app should live:
 
 ```bash
-~/Projects/storyseller-rails-template/bin/new-app myapp --database=postgresql
+~/Projects/storyseller-rails-template/bin/new-app myapp
 ```
 
-Any extra options are passed to `rails new`. The script generates the app in a
-`ruby:3.4` container, then makes the first git commit on your Mac so your own git
-setup (including commit signing) is used.
+Apps use PostgreSQL by default. Any extra options are passed to `rails new`, so
+`--database=sqlite3` (for example) overrides the default.
+
+The script generates the app in a `ruby:3.4` container, then makes the first git
+commit on your Mac so your own git setup (including commit signing) is used.
 
 If Ruby and Rails are installed locally you can also run:
 
 ```bash
-rails new myapp -m ~/Projects/storyseller-rails-template/template.rb
+rails new myapp --database=postgresql -m ~/Projects/storyseller-rails-template/template.rb
 ```
 
 ## Layout
